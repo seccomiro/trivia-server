@@ -122,3 +122,6 @@ Style/SoleNestedConditional:
   Enabled: true
 Style/StringConcatenation:
   Enabled: true
+
+Style/NumericPredicate:
+  Enabled: false
