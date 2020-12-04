@@ -24,7 +24,7 @@ class TokenService
     token.use
   end
 
-  def refresh_current
+  def current_fresh
     api_token = current
     response = reset(api_token)
     raise 'Problem during token refreshing' if response[:response_code] != 0
@@ -35,14 +35,14 @@ class TokenService
   private
 
   def fetch
-    get_json @options.merge(query: { command: 'request' })
+    get_json query: { command: 'request' }
   end
 
   def reset(api_token)
-    get_json @options.merge(query: { command: 'reset', token: api_token })
+    get_json query: { command: 'reset', token: api_token }
   end
 
-  def get_json(options, uri = '')
-    JSON.parse(self.class.get(uri, options), symbolize_names: true)
+  def get_json(options = {}, uri = '')
+    JSON.parse(self.class.get(uri, @options.merge(options)).response.body, symbolize_names: true)
   end
 end
