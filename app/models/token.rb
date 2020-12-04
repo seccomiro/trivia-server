@@ -1,8 +1,10 @@
 class Token < ApplicationRecord
+  belongs_to :game
+
   def use
     self.last_used_at = DateTime.now
     save
-    self.api_token
+    api_token
   end
 
   def self.register(api_token)
