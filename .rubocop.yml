@@ -125,3 +125,5 @@ Style/StringConcatenation:
 
 Style/NumericPredicate:
   Enabled: false
+Rails/EnumHash:
+  Enabled: false
