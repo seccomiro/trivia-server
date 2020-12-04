@@ -3,13 +3,13 @@ module Trivia
     include HTTParty
     base_uri 'https://opentdb.com/api.php'
 
-    def initialize(game, category = nil, difficulty = nil)
-      @category = category
+    def initialize(game)
       @game = game
       @options = {
         query: {
           amount: 1,
-          difficulty: difficulty,
+          difficulty: @game.difficulty,
+          category: @game.category&.code,
           type: 'multiple'
         }
       }
@@ -22,15 +22,15 @@ module Trivia
         response = fetch_api
       end
       payload = response[:results].first
-      Problem.generate(@game, payload)
+      problem = Problem.generate(@game, payload)
       @game.reload
+      problem
     end
 
     private
 
     def fetch_api
-      category = Category.where(id: @category_id).first
-      get_json({ category: category&.code, token: api_token })
+      get_json({ token: api_token })
     end
 
     def api_token
