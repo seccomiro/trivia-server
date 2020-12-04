@@ -8,7 +8,12 @@ class User < ApplicationRecord
     games.playing.last
   end
 
-  def new_game
-    games.create
+  def current_or_new_game(category = nil, difficulty = nil)
+    current_game || new_game(category, difficulty)
+  end
+
+  def new_game(category = nil, difficulty = nil)
+    difficulty = ['hard', 'medium', 'easy'].include?(difficulty) ? difficulty : nil
+    games.create(category: category, difficulty: difficulty)
   end
 end

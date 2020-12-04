@@ -11,6 +11,7 @@ class Problem < ApplicationRecord
       category: category
     )
     generate_answers(problem, payload[:correct_answer], payload[:incorrect_answers])
+    problem
   end
 
   def answered?
