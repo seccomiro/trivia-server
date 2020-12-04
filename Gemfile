@@ -8,9 +8,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
-gem 'ruboclean', require: false
-gem 'rubocop'
-gem 'rubocop-rails', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
@@ -19,6 +16,8 @@ end
 
 group :development do
   gem 'listen', '~> 3.2'
+  gem 'rubocop'
+  gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

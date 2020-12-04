@@ -132,7 +132,6 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.0.0)
     rexml (3.2.4)
-    ruboclean (0.2.0)
     rubocop (1.5.1)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
@@ -181,7 +180,6 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
-  ruboclean
   rubocop
   rubocop-rails
   spring
