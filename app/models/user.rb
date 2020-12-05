@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :games, dependent: :destroy
+  validates :name, presence: true
 
   def current_game
     games.playing.last
