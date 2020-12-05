@@ -4,9 +4,9 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(sign_up_params)
     if @user.save
-      render json: @user
+      render json: { status: :success, data: { user: { email: @user.email } } }
     else
-      render json: { errors: @user.errors }
+      render json: { status: :fail, data: { errors: @user.errors } }, status: :unauthorized
     end
   end
 
