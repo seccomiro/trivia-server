@@ -3,6 +3,9 @@ class ProblemsController < ApiController
   before_action :set_game
 
   def next
+    error = 'You are not playing a game' unless @game
+    return render_error(error) if error
+
     error = 'You have an open problem to answer first' if @game.current_problem
     return render_error(error) if error
 
@@ -11,6 +14,9 @@ class ProblemsController < ApiController
   end
 
   def view
+    error = 'You are not playing a game' unless @game
+    return render_error(error) if error
+
     error = 'You need to ask for a new question' unless @game.current_problem
     return render_error(error) if error
 
@@ -18,6 +24,9 @@ class ProblemsController < ApiController
   end
 
   def answer
+    error = 'You are not playing a game' unless @game
+    return render_error(error) if error
+
     error = 'Invalid answer' unless ['1', '2', '3', '4'].include?(params[:answer])
     error = 'You need to ask for a new question' unless @game.current_problem
 
@@ -31,9 +40,5 @@ class ProblemsController < ApiController
 
   def set_game
     @game = current_user.current_game
-  end
-
-  def render_error(error)
-    render json: { status: :fail, message: error }, status: :bad_request
   end
 end
