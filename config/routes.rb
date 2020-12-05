@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     post :answer, on: :collection
   end
   get '/game', to: 'games#current'
+  get '/game/score', to: 'games#score'
+  delete '/game', to: 'games#finish'
 
   devise_for :users, controllers: { registrations: 'registrations' }
 

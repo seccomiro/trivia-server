@@ -5,5 +5,6 @@ json.data do
     json.correct_answer do
       json.partial! @problem.answers.correct, as: :answer
     end
+    json.score @game.score
   end
 end
