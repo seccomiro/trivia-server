@@ -11,7 +11,7 @@ class Game < ApplicationRecord
   end
 
   def current_problem
-    problems.last unless problems.last.answered?
+    problems.last unless problems.last&.answered?
   end
 
   def finish
