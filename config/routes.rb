@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   resources :problems, only: [] do
-    get :next, on: :collection
-    get :view, on: :collection
-    post :answer, on: :collection
+    collection do
+      get :next
+      get :view
+      post :answer
+    end
   end
-  get '/game', to: 'games#current'
-  get '/game/score', to: 'games#score'
-  delete '/game', to: 'games#finish'
+  resources :games, only: [] do
+    collection do
+      get '', to: 'games#current'
+      delete '', to: 'games#finish'
+    end
+  end
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
