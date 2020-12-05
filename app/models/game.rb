@@ -10,6 +10,10 @@ class Game < ApplicationRecord
     problems.reduce(0) { |total, problem| total + problem.score }
   end
 
+  def current_problem
+    problems.last unless problems.last.answered?
+  end
+
   private
 
   def ensure_status

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :problems, only: [] do
     get :next, on: :collection
+    post :answer, on: :collection
   end
   get '/game', to: 'games#current'
 

@@ -6,6 +6,17 @@ class ProblemsController < ApiController
     @problem = Trivia::QuestionService.new(@game).fetch
   end
 
+  def answer
+    unless @game.current_problem
+      return render json: {
+        status: :fail, message: 'You need to ask for a new question'
+      }, status: :bad_request
+    end
+
+    @problem = @game.current_problem
+    @problem.answer(params[:answer])
+  end
+
   private
 
   def set_game

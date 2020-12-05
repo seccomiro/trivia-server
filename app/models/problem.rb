@@ -42,8 +42,6 @@ class Problem < ApplicationRecord
     answers.find_by(order: order).answer
   end
 
-  private
-
   def self.generate_answers(problem, correct, incorrect)
     answers = [{
       description: correct,
