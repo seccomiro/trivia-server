@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       delete '', to: 'games#finish'
     end
   end
+  get '/ranking', to: 'ranking#index'
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
