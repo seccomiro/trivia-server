@@ -1,5 +1,4 @@
 class ProblemsController < ApiController
-  before_action :authenticate_user!
   before_action :set_game
 
   def next

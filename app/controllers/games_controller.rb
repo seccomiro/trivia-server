@@ -1,6 +1,4 @@
 class GamesController < ApiController
-  before_action :authenticate_user!
-
   def current
     category = Category.find_by(id: params[:category_id])
     difficulty = params[:difficulty]
