@@ -14,6 +14,12 @@ class Game < ApplicationRecord
     problems.last unless problems.last.answered?
   end
 
+  def finish
+    self.status = :finished
+    self.finished_at = DateTime.now
+    save
+  end
+
   private
 
   def ensure_status
