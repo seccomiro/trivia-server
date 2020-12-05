@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       delete '', to: 'games#finish'
     end
   end
+  resources :categories, only: [:index]
   get '/ranking', to: 'ranking#index'
 
   devise_for :users, controllers: { registrations: 'registrations' }
@@ -19,3 +20,5 @@ Rails.application.routes.draw do
   post :auth, to: 'authentication#create'
   get  '/auth' => 'authentication#fetch'
 end
+
+# @paths = routes.map {|r| r.defaults.merge(verb: r.verb) }.group_by { |r| r[:controller] }
