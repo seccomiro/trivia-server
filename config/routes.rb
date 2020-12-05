@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   end
   resources :games, only: [] do
     collection do
-      get '', to: 'games#current'
-      delete '', to: 'games#finish'
+      get '', to: 'games#current', as: :current
+      delete '', to: 'games#finish', as: :finish
     end
   end
   resources :categories, only: [:index]
@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   post :auth, to: 'authentication#create'
   get  '/auth' => 'authentication#fetch'
+
+  root to: 'routes#index'
 end
 
 # @paths = routes.map {|r| r.defaults.merge(verb: r.verb) }.group_by { |r| r[:controller] }
