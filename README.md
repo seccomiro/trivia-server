@@ -104,7 +104,9 @@ Endpoint público. Sem necessidade de outros parâmetros.
 
 Endpoint público. Sem necessidade de outros parâmetros.
 
-> Todos os endpoints daqui em diante necessitam de autenticação utilizando o token obtido no Registro/Login.
+### Endpoints que necessitam de autenticação!
+
+**Todos os endpoints daqui em diante necessitam de autenticação utilizando o token obtido no Registro/Login.**
 
 Para que a autenticação ocorra, o token deve ser enviado através de um Header de requisição (@Headers do Retrofit) exatamente neste formato: **Authorization: \<token\>**. Exemplo:
 
