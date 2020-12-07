@@ -98,7 +98,7 @@ O JSON de requisição e resposta semelhantes ao do registro, só não precisa p
 
 Endpoint público. Sem necessidade de outros parâmetros.
 
-### Rankinf
+### Ranking
 
 **GET** https://super-trivia-server.herokuapp.com/ranking
 
