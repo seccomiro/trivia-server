@@ -52,7 +52,7 @@ Aplicação executando em https://super-trivia-server.herokuapp.com
 
 Código-fonte: https://github.com/seccomiro/trivia-server
 
-Todos os endpoints (URLs) podem retornar um **200 OK** (sucesso) ou algum código de erro (por exemplo, **401 Unauthorized**) que devem ser verificados no retorno da chamada. O JSON resultante também pode mudar.
+Todos os endpoints (URLs) podem retornar um `200 OK` (sucesso) ou algum código de erro (por exemplo, `401 Unauthorized`) que devem ser verificados no retorno da chamada. O JSON resultante também pode mudar.
 
 Todos os endpoints retornam JSON no formato [JSend](https://github.com/omniti-labs/jsend) para facilitar a leitura, tanto nas falhas, quanto nos sucessos.
 
@@ -108,7 +108,7 @@ Endpoint público. Sem necessidade de outros parâmetros.
 
 **Todos os endpoints daqui em diante necessitam de autenticação utilizando o token obtido no Registro/Login.**
 
-Para que a autenticação ocorra, o token deve ser enviado através de um Header de requisição (@Headers do Retrofit) exatamente neste formato: **Authorization: \<token\>**. Exemplo:
+Para que a autenticação ocorra, o token deve ser enviado através de um Header de requisição (`@Headers` do Retrofit) exatamente neste formato: `Authorization: <token>`. Exemplo:
 
 ```
 Authorization: eyJhbGciOiJIUzI1NiJ9.eyazdWIiOjExLCJleHAiOjE2MDgzNTIzMjh9.ujgtkbcPESxPSrUszxEH81vK-ZhdigTnTGu67EhhUcw
@@ -178,7 +178,7 @@ Endpoint muito parecido com o anterior, mas não busca por uma nova questão e s
 
 **POST** https://super-trivia-server.herokuapp.com/problems/answer?answer=4
 
-O parâmetro ?answer=4 é usado para identificar qual resposta o usuário está dando (1, 2, 3 ou 4), de acordo com a order das answers do JSON anterior.
+O parâmetro **?answer=4** é usado para identificar qual resposta o usuário está dando (1, 2, 3 ou 4), de acordo com a order das answers do JSON anterior.
 
 A resposta mostra a pontuação atualizada:
 
