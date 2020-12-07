@@ -114,6 +114,8 @@ Para que a autenticação ocorra, o token deve ser enviado através de um Header
 Authorization: eyJhbGciOiJIUzI1NiJ9.eyazdWIiOjExLCJleHAiOjE2MDgzNTIzMjh9.ujgtkbcPESxPSrUszxEH81vK-ZhdigTnTGu67EhhUcw
 ```
 
+Caso este cabeçalho não seja passado, ou o token informado seja inválido, a API irá retornar com erro de autenticação.
+
 ### Iniciar um novo jogo ou retorna o jogo corrente do usuário autenticado
 
 **GET** https://super-trivia-server.herokuapp.com/games?difficulty=hard&category_id=1
@@ -124,11 +126,15 @@ O parâmetro **category_id** é opcional, mas deve usar um dos IDs de categoria 
 
 Este endpoint também serve para consultar a pontuação atualizada do jogo a qualquer momento.
 
-### Finalizar o jogo corrente (erro caso não haja)
+### Finalizar o jogo corrente
+
+> Podem ocorrer erros, que dever ser devidamente tratados.
 
 **DELETE** https://super-trivia-server.herokuapp.com/games
 
-### Solicitar uma nova questão para responder (podem ocorrer erros)
+### Solicitar uma nova questão para responder
+
+> Podem ocorrer erros, que dever ser devidamente tratados.
 
 **GET** https://super-trivia-server.herokuapp.com/problems/next
 
@@ -168,13 +174,17 @@ Retorna uma questão gerada aleatoriamente pela API.
 }
 ```
 
-### Ver a questão atualmente aberta para resposta (podem ocorrer erros)
+### Ver a questão atualmente aberta para resposta
+
+> Podem ocorrer erros, que dever ser devidamente tratados.
 
 **GET** https://super-trivia-server.herokuapp.com/problems/view
 
 Endpoint muito parecido com o anterior, mas não busca por uma nova questão e sim mostra a questão atualmente esperando resposta.
 
-### Responder à questão aberta (podem ocorrer erros)
+### Responder à questão aberta
+
+> Podem ocorrer erros, que dever ser devidamente tratados.
 
 **POST** https://super-trivia-server.herokuapp.com/problems/answer?answer=4
 
