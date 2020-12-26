@@ -208,4 +208,9 @@ A resposta mostra a pontuação atualizada:
 }
 ```
 
-### 
+# Known Bugs / New Features
+
+- Ranking: show only the best score for each player.
+- Allow users to update `Game` settings (difficulty and category) \[`PATCH` method\].
+- Fix HTML entities in problems and answers.
+- Wrap JSON with a JSend template.
